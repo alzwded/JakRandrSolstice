@@ -11,3 +11,15 @@
 *.lai
 *.la
 *.a
+
+# my adds
+**/*.vcproj.*
+**/*.bak
+**/*~
+**/#*#
+**/Debug
+**/Release
+**/*.pdb
+**/*.dll
+**/*.obj
+**/*.exe

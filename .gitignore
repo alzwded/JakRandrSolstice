@@ -24,3 +24,7 @@
 **/*.obj
 **/*.exe
 **/*.suo
+**/*.ncb
+**/*.ilk
+*.ncb
+*.suo

@@ -37,4 +37,6 @@ public:
 	virtual void loop() =0;
 	// add a sub-entity
 	virtual void addEntity(const gsp&) =0;
+	// deep copy
+	virtual gsp deepCopy() =0;
 };

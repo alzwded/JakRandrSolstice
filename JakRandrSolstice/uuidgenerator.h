@@ -2,7 +2,7 @@
 
 #include <string>
 
-class UUIDgenerator {
+class UUIDgenerator sealed {
 public:
 	UUIDgenerator(const char* prefix = "_")
 		: m_prefix(prefix)

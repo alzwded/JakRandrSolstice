@@ -41,6 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="$(ProjectDir)\..\freeglut\include\"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -60,7 +61,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="freeglut.lib"
 				LinkIncremental="2"
+				AdditionalLibraryDirectories="$(ProjectDir)\..\freeglut\lib\"
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				TargetMachine="1"
@@ -85,6 +88,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="copy $(ProjectDir)\..\freeglut\bin\freeglut.dll $(OutDir)\&#x0D;&#x0A;copy $(ProjectDir)\..\freeglut\Readme.txt $(OutDir)\freeglut_Readme.txt&#x0D;&#x0A;copy $(ProjectDir)\..\freeglut\Copying.txt  $(OutDir)\freeglut_Copying.txt"
 			/>
 		</Configuration>
 		<Configuration
@@ -182,7 +186,7 @@
 					>
 				</File>
 				<File
-					RelativePath=".\uuidgenerator.cxx"
+					RelativePath=".\uuidgenerator.cpp"
 					>
 				</File>
 			</Filter>
@@ -191,6 +195,14 @@
 				>
 				<File
 					RelativePath=".\ai.cpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="model"
+				>
+				<File
+					RelativePath=".\entityDB.cpp"
 					>
 				</File>
 			</Filter>
@@ -261,6 +273,10 @@
 				>
 				<File
 					RelativePath=".\bEntity.h"
+					>
+				</File>
+				<File
+					RelativePath=".\entityDB.h"
 					>
 				</File>
 				<File

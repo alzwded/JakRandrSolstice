@@ -4,7 +4,8 @@
 
 /*
 	intended usage:
-	vec3 p(range<float>(100.0)(50.0)(-10.0));
+	vec3 p(range<float, 3>(100.0)(50.0)(-10.0));
+	range<range<float, 2>, 2> I2(range<float, 2>(1)(0), range<float, 2>(0)(1));
 */
 
 template<class T, int SIZE>

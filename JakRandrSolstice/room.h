@@ -1,0 +1,27 @@
+#pragma once
+
+#include <list>
+#include <util>
+#include "vec.h"
+#include "gsp.h"
+
+class room;
+
+class room_portal {
+protected:
+	room_portal(const vec3& p1, const vec3& p2);
+
+	friend class room;
+};
+
+class room {
+public:
+	room() {}
+
+	void loop();
+
+	void computeVisible(); // compute other visible rooms
+private:
+	std::list<std::pair<room_portal, room*>> m_rooms;
+	std::list<gsp> m_entities;
+};

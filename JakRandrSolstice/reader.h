@@ -179,16 +179,16 @@ formats:
 */
 
 /*
-	Reader r(root);
-	istream roomFile("roomfile.rooms"));
-	r.readRooms(file);
+	Reader r(roomDB, entityDB);
 	istream entities1("core.entities");
 	r.readEntities(entities1);
 	istream entities2("additional.entities");
 	r.readEntities(entities2);
+	istream roomFile("roomfile.rooms"));
+	r.readRooms(file);
 
 	activeRoom = r.getFirstRoom();
-	globalRoomList = activeRoom.computeGlobalRoomList();
+	//roomDB globalRoomList;
 	for(;;) {
 		receiveInput();
 
@@ -212,8 +212,11 @@ formats:
 class Reader
 {
 public:
-	Reader();
+	Reader(roomDB& rooms, entityDB& db);
 
 	readRooms(const istream& roomStream);
 	readEntities(const istream& entityStream);
+private:
+	roomDB& m_rooms;
+	entityDB& m_db;
 };

@@ -78,5 +78,6 @@ private:
 	float m_data[SIZE];
 };
 
+typedef vec<2> vec2;
 typedef vec<3> vec3;
 typedef vec<4> vec4;

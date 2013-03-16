@@ -1,0 +1,34 @@
+-	NEW
+~	maybe
+*	in progress
+^	on hold
+x	done
+
+
+- implement entities
+	- bEntity
+		- isA mechanism
+		- AI mechanism connection
+	- te_SKELETON_NODE,
+	- te_FLESH_NODE,
+	- te_TRIA,
+	- te_QUAD,
+	- te_SKIN,
+	- te_BODY,
+		- collision mechanism
+	- te_BLOB,
+		- collision mechanism
+	~ te_COMPOUND,
+	
+- implement AI mechanism
+	
+- implement reader
+	- implement EntitiesReader
+		- parser
+		- model generator
+	- implement RoomReader
+		- parser
+		- generator
+		
+- implement GUI
+	- static rendering

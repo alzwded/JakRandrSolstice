@@ -2,6 +2,11 @@
 
 #include "exceptions.h"
 
+/*
+	intended usage:
+	vec3 p(range<float>(100.0)(50.0)(-10.0));
+*/
+
 template<class T, int SIZE>
 class range sealed
 {

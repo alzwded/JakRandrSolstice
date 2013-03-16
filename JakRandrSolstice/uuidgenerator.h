@@ -4,7 +4,7 @@
 
 class UUIDgenerator {
 public:
-	UUIDgenerator(const char* prefix = "u")
+	UUIDgenerator(const char* prefix = "_")
 		: m_prefix(prefix)
 	{}
 

@@ -11,6 +11,7 @@ public:
 	path();
 
 	void addNode(const std::string&);
+	void addPath(const path&);
 	path head();
 	path tail();
 
@@ -19,6 +20,9 @@ public:
 	bool empty();
 
 private:
+	bool m_root;
 	std::string m_tail;
 	path m_head;
+
+	std::string cache_fullPath;
 };

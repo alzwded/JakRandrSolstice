@@ -4,10 +4,13 @@
 ^	on hold
 x	done
 
-- move all model-related stuff to SolsticeRuntime project
+* move all model-related stuff to SolsticeRuntime project
   all that has to do with runtime and plugin support will live there
   all that has to do with GUI or super specific implementation will live in 
     JakRandrSolstice
+	- phisically move files to other project dir
+	  need to do some reasearch how to do this without either git or vs feaking out
+	  for now, leave them as they are
 
 - implement entities
 	- bEntity

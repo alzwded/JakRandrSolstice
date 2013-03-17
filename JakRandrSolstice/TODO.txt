@@ -4,6 +4,10 @@
 ^	on hold
 x	done
 
+- move all model-related stuff to SolsticeRuntime project
+  all that has to do with runtime and plugin support will live there
+  all that has to do with GUI or super specific implementation will live in 
+    JakRandrSolstice
 
 - implement entities
 	- bEntity

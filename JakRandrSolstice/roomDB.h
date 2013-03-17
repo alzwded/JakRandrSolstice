@@ -5,7 +5,7 @@
 #include <list>
 #include "room.h"
 
-class roomDB {
+class SOLSTICERUNTIME_API roomDB {
 public:
 	roomDB() {}
 	void add(const room& r) { m_db.push_back(r); }

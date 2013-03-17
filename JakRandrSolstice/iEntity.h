@@ -9,7 +9,7 @@ class gsp;
 class path;
 class ai;
 
-class iEntity
+class SOLSTICERUNTIME_API iEntity
 {
 public:	
 	// type hierarchy

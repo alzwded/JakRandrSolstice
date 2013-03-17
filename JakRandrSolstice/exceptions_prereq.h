@@ -12,7 +12,7 @@
 #define THROW(WHAT) THROW_MSG(WHAT, "")
 
 #define EXTEND_EXCEPTION(BASE, NAME)\
-class NAME : public BASE { \
+class SOLSTICERUNTIME_API NAME : public BASE { \
 public: \
 	NAME(\
 		const char* msg,\
@@ -27,7 +27,7 @@ public: \
 
 #define EXCEPTION(NAME) EXTEND_EXCEPTION(Exception, NAME)
 
-class Exception
+class SOLSTICERUNTIME_API Exception
 {
 public:
 	Exception(

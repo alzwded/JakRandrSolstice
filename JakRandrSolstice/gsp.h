@@ -3,7 +3,7 @@
 #include "exceptions.h"
 #include "iEntity.h"
 
-class gsp
+class SOLSTICERUNTIME_API gsp
 {
 public:
 	gsp(iEntity* p)

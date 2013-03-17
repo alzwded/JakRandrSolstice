@@ -103,6 +103,9 @@ formats:
 
 	entity files: (extension .entitites)
 		begin_body ball
+			begin_ai ball_ai		; search for function ball_ai(void*, void**, int)
+				dll plugin.dll		; in plugin.dll
+			end_ai
 			begin_skel mySkeleton
 				ref _				; location is relative to centre of ball
 				location 0, 0, 0
@@ -179,16 +182,17 @@ formats:
 */
 
 /*
-	Reader r(roomDB, entityDB);
+	//roomDB globalRoomList;
+	//entityDB entities;
+	Reader r(globalRoomList, entities);
 	istream entities1("core.entities");
 	r.readEntities(entities1);
 	istream entities2("additional.entities");
 	r.readEntities(entities2);
-	istream roomFile("roomfile.rooms"));
+	istream roomFile("level.rooms"));
 	r.readRooms(file);
 
-	activeRoom = r.getFirstRoom();
-	//roomDB globalRoomList;
+	activeRoom = r.done();
 	for(;;) {
 		receiveInput();
 
@@ -209,13 +213,18 @@ formats:
 	}
 */
 
-class Reader
+class SOLSTICERUNTIME_API Reader
 {
 public:
-	Reader(roomDB& rooms, entityDB& db);
+	Reader(roomDB& rooms, entityDB& db)
+		: m_rooms(rooms)
+		, m_db(db)
+	{}
 
-	readRooms(const istream& roomStream);
-	readEntities(const istream& entityStream);
+	void readRooms(const istream& roomStream);
+	void readEntities(const istream& entityStream);
+
+	room& done();
 private:
 	roomDB& m_rooms;
 	entityDB& m_db;

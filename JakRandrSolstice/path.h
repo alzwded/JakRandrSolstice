@@ -3,26 +3,30 @@
 #include <string>
 #include <list>
 
-class path sealed 
+class SOLSTICERUNTIME_API path sealed 
 {
 public:
-	path(const std::list<std::string>&);
-	path(const std::string&);
-	path();
+	path(const std::list<std::string>&, bool root = false);
+	path(const std::string&, bool root = false);
+	path(const path&);
+	path(bool root = true);
 
-	void addNode(const std::string&);
-	void addPath(const path&);
-	path head();
-	path tail();
+	std::string& head();
+	std::string& last();
+	std::string& str();
 
-	std::string toString();
+	void push_back(const std::string&);
+	void push_back(const path&);
+	void pop();
 
+	bool operator<(const path&);
 	bool empty();
-
 private:
 	bool m_root;
-	std::string m_tail;
-	path m_head;
+	std::list<std::string> m_nodes;
 
+	bool cache_invalid;
+	std::string cache_tail;
+	std::string cache_head;
 	std::string cache_fullPath;
 };

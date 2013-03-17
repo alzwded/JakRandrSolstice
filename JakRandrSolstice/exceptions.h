@@ -11,7 +11,11 @@
 EXCEPTION(OutOfRangeException)
 EXCEPTION(IncompatibleTypeException)
 EXCEPTION(NullPtrException)
+EXCEPTION(NameNotFoundException)
+EXCEPTION(FileNotFoundException)
 
 EXCEPTION(FactoryException)
 EXTEND_EXCEPTION(FactoryException, UnknownTypeException)
 EXTEND_EXCEPTION(FactoryException, UndefinedTypeException)
+
+EXCEPTION(

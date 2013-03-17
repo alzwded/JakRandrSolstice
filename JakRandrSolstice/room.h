@@ -5,16 +5,16 @@
 #include "vec.h"
 #include "gsp.h"
 
-class room;
+class SOLSTICERUNTIME_API room;
 
-class room_portal {
+class SOLSTICERUNTIME_API room_portal {
 protected:
 	room_portal(const vec3& p1, const vec3& p2);
 
 	friend class room;
 };
 
-class room {
+class SOLSTICERUNTIME_API room {
 public:
 	room() {}
 

@@ -6,7 +6,7 @@
 #include "gsp.h"
 #include "tEntity.h"
 
-class fEntity
+class SOLSTICERUNTIME_API fEntity
 {
 public:
 	static gsp spawn(tEntity type)

@@ -10,7 +10,7 @@
 #include "tEntity.h"
 #include "gsp.h"
 
-class entityDB {
+class SOLSTICERUNTIME_API entityDB {
 public:
 	entityDB() {}
 	

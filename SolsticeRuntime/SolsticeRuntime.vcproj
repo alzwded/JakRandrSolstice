@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="JakRandrSolstice"
-	ProjectGUID="{08CD2FEE-FE58-46F2-956E-4512F00C3AC6}"
-	RootNamespace="JakRandrSolstice"
+	Name="SolsticeRuntime"
+	ProjectGUID="{ED073EB7-A967-463D-9AB5-C154A5971901}"
+	RootNamespace="SolsticeRuntime"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -20,7 +20,7 @@
 			Name="Debug|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="1"
+			ConfigurationType="2"
 			CharacterSet="1"
 			>
 			<Tool
@@ -41,12 +41,11 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="$(ProjectDir)\..\freeglut\include\"
-				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;SOLSTICERUNTIME_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
-				UsePrecompiledHeader="0"
+				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				DebugInformationFormat="4"
 			/>
@@ -61,11 +60,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="freeglut.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="$(ProjectDir)\..\freeglut\lib\"
 				GenerateDebugInformation="true"
-				SubSystem="1"
+				SubSystem="2"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -88,14 +85,13 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="copy $(ProjectDir)\..\freeglut\bin\freeglut.dll $(OutDir)\&#x0D;&#x0A;copy $(ProjectDir)\..\freeglut\Readme.txt $(OutDir)\freeglut_Readme.txt&#x0D;&#x0A;copy $(ProjectDir)\..\freeglut\Copying.txt  $(OutDir)\freeglut_Copying.txt"
 			/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="1"
+			ConfigurationType="2"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
@@ -118,10 +114,10 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;SOLSTICERUNTIME_EXPORTS"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
-				UsePrecompiledHeader="0"
+				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				DebugInformationFormat="3"
 			/>
@@ -138,7 +134,7 @@
 				Name="VCLinkerTool"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
-				SubSystem="1"
+				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				TargetMachine="1"
@@ -175,127 +171,69 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\main.cpp"
+				RelativePath=".\dllmain.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+						CompileAsManaged="0"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+						CompileAsManaged="0"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\SolsticeRuntime.cpp"
 				>
 			</File>
-			<Filter
-				Name="util"
+			<File
+				RelativePath=".\stdafx.cpp"
 				>
-				<File
-					RelativePath=".\exceptions.cpp"
+				<FileConfiguration
+					Name="Debug|Win32"
 					>
-				</File>
-				<File
-					RelativePath=".\uuidgenerator.cpp"
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
 					>
-				</File>
-			</Filter>
-			<Filter
-				Name="dontTouch"
-				>
-				<File
-					RelativePath=".\ai.cpp"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="model"
-				>
-				<File
-					RelativePath=".\entityDB.cpp"
-					>
-				</File>
-			</Filter>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<Filter
-				Name="dontTouch"
+			<File
+				RelativePath=".\SolsticeRuntime.h"
 				>
-				<File
-					RelativePath=".\ai.h"
-					>
-				</File>
-				<File
-					RelativePath=".\exceptions_prereq.h"
-					>
-				</File>
-				<File
-					RelativePath=".\gsp.h"
-					>
-				</File>
-				<File
-					RelativePath=".\iEntity.h"
-					>
-				</File>
-				<File
-					RelativePath=".\tEntity.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="util"
+			</File>
+			<File
+				RelativePath=".\stdafx.h"
 				>
-				<File
-					RelativePath=".\exceptions.h"
-					>
-				</File>
-				<File
-					RelativePath=".\path.h"
-					>
-				</File>
-				<File
-					RelativePath=".\range.h"
-					>
-				</File>
-				<File
-					RelativePath=".\uuidgenerator.h"
-					>
-				</File>
-				<File
-					RelativePath=".\vec.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="IO"
+			</File>
+			<File
+				RelativePath=".\targetver.h"
 				>
-				<File
-					RelativePath=".\reader.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="model"
-				>
-				<File
-					RelativePath=".\bEntity.h"
-					>
-				</File>
-				<File
-					RelativePath=".\entityDB.h"
-					>
-				</File>
-				<File
-					RelativePath=".\fEntity.h"
-					>
-				</File>
-				<File
-					RelativePath=".\room.h"
-					>
-				</File>
-				<File
-					RelativePath=".\roomDB.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="gui"
-				>
-			</Filter>
+			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
@@ -303,18 +241,10 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 		</Filter>
-		<Filter
-			Name="dox"
+		<File
+			RelativePath=".\ReadMe.txt"
 			>
-			<File
-				RelativePath=".\deps.txt"
-				>
-			</File>
-			<File
-				RelativePath=".\TODO.txt"
-				>
-			</File>
-		</Filter>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>

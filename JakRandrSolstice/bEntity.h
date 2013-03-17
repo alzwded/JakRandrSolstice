@@ -6,6 +6,6 @@
 // implement isA mechanism
 // TODO determine what other things to implement here
 
-class bEntity : public iEntity
+class SOLSTICERUNTIME_API bEntity : public iEntity
 {
 };

@@ -7,6 +7,7 @@ GUI -> dontTouch
 GUI -> util
 GUI -> glut
 GUI -> openGL
+application -> just about everything
 
 
 #### oddities
@@ -14,3 +15,11 @@ util -> dontTocuh (exceptions.h -> exceptions_prerequisites.h)
 	-- this is acceptable since no one other ever includes exceptions_prerequisites
 	-- the point of the dontTouch pack is that nobody is allowed to modify stuff there
 	-- ever.
+	
+	
+	
+project deps:
+SolsticeTest -> JakRandrSolstice
+SolsticeTest -> SolsticePlugins
+SolsticePlugins -> SolsticeRuntime
+JakRandrSolstice -> SolsticeRuntime

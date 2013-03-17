@@ -103,6 +103,7 @@ formats:
 				100, 0, 100
 			end_quad
 		end_room
+		end
 
 	entity files: (extension .entitites)
 		begin_body ball
@@ -182,6 +183,7 @@ formats:
 				location -20, 0, 2
 			end_entity
 		end_compound
+		end
 */
 
 /*
@@ -224,10 +226,13 @@ public:
 		, m_db(db)
 	{}
 
+	// lazy load rooms
 	void readRooms(const std::istream& roomStream);
+	// lazy load entities
 	void readEntities(const std::istream& entityStream);
 
-	room& done();
+	// spawn entities in rooms
+	void done();
 private:
 	roomDB& m_rooms;
 	entityDB& m_db;

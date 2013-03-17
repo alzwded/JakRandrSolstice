@@ -236,6 +236,10 @@
 					RelativePath="..\JakRandrSolstice\PluginManager.cpp"
 					>
 				</File>
+				<File
+					RelativePath=".\roomDB.cpp"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="util"

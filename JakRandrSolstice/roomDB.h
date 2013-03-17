@@ -14,6 +14,7 @@ public:
 	std::list<room>::iterator begin() { return m_db.begin(); }
 	std::list<room>::iterator end() { return m_db.end(); }
 	typedef std::list<room>::iterator iterator;
+	void clear();
 private:
 	std::list<room> m_db;
 };

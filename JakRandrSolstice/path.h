@@ -1,21 +1,23 @@
 #pragma once
 
+#include <dllDefines.h>
+
 #include <string>
 #include <list>
 
 class SOLSTICERUNTIME_API path sealed 
 {
 public:
-	path(const std::list<std::string>&, bool root = false);
-	path(const std::string&, bool root = false);
+	path(const std::list<std::wstring>&, bool root = false);
+	path(const std::wstring&, bool root = false);
 	path(const path&);
 	path(bool root = true);
 
-	std::string& head();
-	std::string& last();
-	std::string& str();
+	std::wstring& head();
+	std::wstring& last();
+	std::wstring& str();
 
-	void push_back(const std::string&);
+	void push_back(const std::wstring&);
 	void push_back(const path&);
 	void pop();
 
@@ -23,10 +25,10 @@ public:
 	bool empty();
 private:
 	bool m_root;
-	std::list<std::string> m_nodes;
+	std::list<std::wstring> m_nodes;
 
 	bool cache_invalid;
-	std::string cache_tail;
-	std::string cache_head;
-	std::string cache_fullPath;
+	std::wstring cache_tail;
+	std::wstring cache_head;
+	std::wstring cache_fullPath;
 };

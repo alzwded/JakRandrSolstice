@@ -41,6 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="$(ProjectDir), $(ProjectDir)\..\JakRandrSolstice\"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;SOLSTICERUNTIME_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -216,6 +217,46 @@
 					/>
 				</FileConfiguration>
 			</File>
+			<Filter
+				Name="dontTouch"
+				>
+				<File
+					RelativePath="..\JakRandrSolstice\ai.cpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="model"
+				>
+				<File
+					RelativePath="..\JakRandrSolstice\entityDB.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\JakRandrSolstice\PluginManager.cpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="util"
+				>
+				<File
+					RelativePath="..\JakRandrSolstice\exceptions.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\JakRandrSolstice\uuidgenerator.cpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="application"
+				>
+				<File
+					RelativePath=".\SolsticeApplication.cpp"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -234,6 +275,102 @@
 				RelativePath=".\targetver.h"
 				>
 			</File>
+			<Filter
+				Name="dontTouch"
+				>
+				<File
+					RelativePath="..\JakRandrSolstice\ai.h"
+					>
+				</File>
+				<File
+					RelativePath="..\JakRandrSolstice\exceptions_prereq.h"
+					>
+				</File>
+				<File
+					RelativePath="..\JakRandrSolstice\gsp.h"
+					>
+				</File>
+				<File
+					RelativePath="..\JakRandrSolstice\iEntity.h"
+					>
+				</File>
+				<File
+					RelativePath="..\JakRandrSolstice\tEntity.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="model"
+				>
+				<File
+					RelativePath="..\JakRandrSolstice\bEntity.h"
+					>
+				</File>
+				<File
+					RelativePath="..\JakRandrSolstice\entityDB.h"
+					>
+				</File>
+				<File
+					RelativePath="..\JakRandrSolstice\fEntity.h"
+					>
+				</File>
+				<File
+					RelativePath="..\JakRandrSolstice\PluginManager.h"
+					>
+				</File>
+				<File
+					RelativePath="..\JakRandrSolstice\room.h"
+					>
+				</File>
+				<File
+					RelativePath="..\JakRandrSolstice\roomDB.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="IO"
+				>
+				<File
+					RelativePath="..\JakRandrSolstice\reader.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="util"
+				>
+				<File
+					RelativePath=".\dllDefines.h"
+					>
+				</File>
+				<File
+					RelativePath="..\JakRandrSolstice\exceptions.h"
+					>
+				</File>
+				<File
+					RelativePath="..\JakRandrSolstice\path.h"
+					>
+				</File>
+				<File
+					RelativePath="..\JakRandrSolstice\range.h"
+					>
+				</File>
+				<File
+					RelativePath="..\JakRandrSolstice\uuidgenerator.h"
+					>
+				</File>
+				<File
+					RelativePath="..\JakRandrSolstice\vec.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="application"
+				>
+				<File
+					RelativePath=".\SolsticeApplication.h"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Resource Files"

@@ -1,11 +1,18 @@
 #pragma once
 
+#include <dllDefines.h>
+
 #include "exceptions.h"
 #include "iEntity.h"
 
 class SOLSTICERUNTIME_API gsp
 {
 public:
+	gsp()
+	{
+		m_p = NULL;
+		m_rc = NULL;
+	}
 	gsp(iEntity* p)
 	{
 		if(p == NULL) THROW(NullPtrException);
@@ -23,19 +30,26 @@ public:
 	}
 
 	~gsp() {
+		if(!m_rc) return;
+
 		if(--*m_rc == 0) {
 			delete m_rc;
 			delete m_p;
 		}
 	}
 
-	iEntity* get() { return m_p; }
+	iEntity* get() const { 
+		return m_p;
+	}
 
 	template<class Y>
-	Y* cast() { return dynamic_cast<Y*>(m_p); }
+	Y* cast() const { return dynamic_cast<Y*>(m_p); }
 
 	template<class Y>
-	Y& ref() { return *dynamic_cast<Y*>(m_p); }
+	Y& ref() const {
+		if(!m_p) THROW(NullPtrException);
+		return *dynamic_cast<Y*>(m_p);
+	}
 private:
 	iEntity* m_p;
 	int* m_rc;

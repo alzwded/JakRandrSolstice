@@ -1,4 +1,5 @@
-#include "uuidgenerator.h"
+#include "stdafx.h"
+#include <uuidgenerator.h>
 #include <sstream>
 
 std::string UUIDgenerator::next()
@@ -10,6 +11,6 @@ std::string UUIDgenerator::next()
 
 int UUIDgenerator::nextNumber()
 {
-	static g_id = 0;
+	static unsigned long g_id = 0;
 	return ++g_id;
 }

@@ -40,8 +40,9 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
+				AdditionalOptions="main.cpp"
 				Optimization="0"
-				AdditionalIncludeDirectories="$(ProjectDir)\..\freeglut\include\"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\SolsticeRuntime&quot;;&quot;$(ProjectDir)&quot;;&quot;$(ProjectDir)..\freeglut\include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -58,12 +59,13 @@
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
+				CommandLine="copy $(ProjectDir)\..\freeglut\bin\freeglut.dll $(OutDir)\"
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="freeglut.lib"
+				AdditionalDependencies="freeglut.lib kernel32.lib SolsticeRuntime.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="$(ProjectDir)\..\freeglut\lib\"
+				AdditionalLibraryDirectories="&quot;$(ProjectDir)..\SolsticeRuntime\Debug&quot;;&quot;$(ProjectDir)..\freeglut\lib&quot;"
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				TargetMachine="1"
@@ -88,7 +90,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="copy $(ProjectDir)\..\freeglut\bin\freeglut.dll $(OutDir)\&#x0D;&#x0A;copy $(ProjectDir)\..\freeglut\Readme.txt $(OutDir)\freeglut_Readme.txt&#x0D;&#x0A;copy $(ProjectDir)\..\freeglut\Copying.txt  $(OutDir)\freeglut_Copying.txt"
+				CommandLine=""
 			/>
 		</Configuration>
 		<Configuration
@@ -178,34 +180,6 @@
 				RelativePath=".\main.cpp"
 				>
 			</File>
-			<Filter
-				Name="util"
-				>
-				<File
-					RelativePath=".\exceptions.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\uuidgenerator.cpp"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="dontTouch"
-				>
-				<File
-					RelativePath=".\ai.cpp"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="model"
-				>
-				<File
-					RelativePath=".\entityDB.cpp"
-					>
-				</File>
-			</Filter>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -213,88 +187,12 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<Filter
-				Name="dontTouch"
-				>
-				<File
-					RelativePath=".\ai.h"
-					>
-				</File>
-				<File
-					RelativePath=".\exceptions_prereq.h"
-					>
-				</File>
-				<File
-					RelativePath=".\gsp.h"
-					>
-				</File>
-				<File
-					RelativePath=".\iEntity.h"
-					>
-				</File>
-				<File
-					RelativePath=".\tEntity.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="util"
-				>
-				<File
-					RelativePath=".\exceptions.h"
-					>
-				</File>
-				<File
-					RelativePath=".\path.h"
-					>
-				</File>
-				<File
-					RelativePath=".\range.h"
-					>
-				</File>
-				<File
-					RelativePath=".\uuidgenerator.h"
-					>
-				</File>
-				<File
-					RelativePath=".\vec.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="IO"
-				>
-				<File
-					RelativePath=".\reader.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="model"
-				>
-				<File
-					RelativePath=".\bEntity.h"
-					>
-				</File>
-				<File
-					RelativePath=".\entityDB.h"
-					>
-				</File>
-				<File
-					RelativePath=".\fEntity.h"
-					>
-				</File>
-				<File
-					RelativePath=".\room.h"
-					>
-				</File>
-				<File
-					RelativePath=".\roomDB.h"
-					>
-				</File>
-			</Filter>
-			<Filter
 				Name="gui"
 				>
+				<File
+					RelativePath=".\display.h"
+					>
+				</File>
 			</Filter>
 		</Filter>
 		<Filter

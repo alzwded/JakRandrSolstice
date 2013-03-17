@@ -1,7 +1,8 @@
 #pragma once
 
+#include <dllDefines.h>
+
 #include <list>
-#include <util>
 #include "vec.h"
 #include "gsp.h"
 

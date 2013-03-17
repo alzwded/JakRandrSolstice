@@ -1,4 +1,6 @@
-#include "PluginManager.h"
+
+#include "stdafx.h"
+#include <PluginManager.h>
 
 DllInst::~DllInst()
 {
@@ -10,10 +12,10 @@ DllInst::~DllInst()
 DllInst::DllInst(const DllInst& other)
 {
 	m_id = other.m_id;
-	other.m_id = NULL;
+	const_cast<DllInst&>(other).m_id = NULL;
 }
 
-DllInst DllInst::Load(const std::string &dll)
+DllInst DllInst::Load(const std::wstring &dll)
 {
 	HMODULE id = LoadLibrary(dll.c_str());
 
@@ -31,7 +33,7 @@ DllInst DllInst::Load(const std::string &dll)
 			(LPTSTR) &lpMsgBuf,
 			0, NULL );
 
-		THROW_MSG(FileNotFoundException, lpMsgBuf);
+		THROW_MSG(FileNotFoundException, (wchar_t*)lpMsgBuf);
 	}
 
 	DllInst ret(id);
@@ -45,7 +47,7 @@ aif_t DllInst::Function(const std::string& fid)
 		THROW(NullPtrException);
 	}
 
-	ait_t ret = (aif_t) GetProcAddress(m_id, fid.c_str());
+	aif_t ret = (aif_t) GetProcAddress(m_id, fid.c_str());
 
 	if(!ret) {
 		LPVOID lpMsgBuf;
@@ -61,21 +63,22 @@ aif_t DllInst::Function(const std::string& fid)
 			(LPTSTR) &lpMsgBuf,
 			0, NULL );
 
-		THROW(FileNotFoundException, lpMsgBuf);
+		THROW_MSG(FileNotFoundException, (wchar_t*)lpMsgBuf);
 	}
 
 	return ret;
 }
 
-aif_t PluginManager::get(const std::string &dll, const std::string &fid)
+aif_t PluginManager::get(const std::wstring &dll, const std::string &fid)
 {
-	auto i = m_plugins.find(dll);
+	std::map<std::wstring, DllInst>::iterator i = m_plugins.find(dll);
 	if(i != m_plugins.end()) {
 		return i->second.Function(fid);
 	} else {
-		auto lib = DllInst::Load(dll);
+		DllInst lib = DllInst::Load(dll);
+		aif_t ret = lib.Function(fid);
 		m_plugins[dll] = lib;
-		return lib.Function(fid);
+		return ret;
 	}
 }
 

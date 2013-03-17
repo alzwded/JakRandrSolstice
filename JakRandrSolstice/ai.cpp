@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "ai.h"
 #include "iEntity.h"
 #include "gsp.h"

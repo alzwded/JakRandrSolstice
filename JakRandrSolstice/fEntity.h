@@ -1,5 +1,7 @@
 #pragma once
 
+#include <dllDefines.h>
+
 // entity factory
 
 #include "exceptions.h"
@@ -13,10 +15,10 @@ public:
 	{
 		switch(type) {
 		case te_UNDEFINED:
-			THROW(UndefinedTypeException, "");
+			THROW(UndefinedTypeException);
 			break;
 		default:
-			THROW(UnknownTypeException, "");
+			THROW(UnknownTypeException);
 			break;
 		}
 	}

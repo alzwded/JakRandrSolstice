@@ -1,5 +1,7 @@
 #pragma once
 
+#include <dllDefines.h>
+
 // essentially just a giant list of rooms
 
 #include <list>

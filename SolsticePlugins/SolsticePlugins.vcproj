@@ -41,6 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="$(ProjectDir)\..\JakRandrSolstice\, $(ProjectDir)\..\SolsticeRuntime\"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;SOLSTICEPLUGINS_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"

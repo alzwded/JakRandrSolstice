@@ -1,5 +1,7 @@
 #pragma once
 
+#include <dllDefines.h>
+
 #include <string>
 
 #include "tEntity.h"
@@ -18,7 +20,7 @@ public:
 	// will be something like /room/model/subpart/myname
 	virtual path getPath() =0;
 	// get my name (tail of path)
-	virtual std::string name() =0;
+	virtual std::wstring name() =0;
 	// retrieve a sub-entity by path
 	// can be relative or absolute
 	virtual gsp getByPath(const path&) =0;

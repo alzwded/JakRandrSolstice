@@ -6,16 +6,16 @@
 #include <ostream>
 
 #define THROW_MSG(WHAT, TEXT) do{\
-	throw WHAT(#TEXT, __FILE__, __FUNCSIG__, __LINE__); \
+	throw WHAT(TEXT, __FILE__, __FUNCSIG__, __LINE__); \
 }while(0)
 
-#define THROW(WHAT) THROW_MSG(WHAT, "")
+#define THROW(WHAT) THROW_MSG(WHAT, L"")
 
 #define EXTEND_EXCEPTION(BASE, NAME)\
 class SOLSTICERUNTIME_API NAME : public BASE { \
 public: \
 	NAME(\
-		const char* msg,\
+		const wchar_t* msg,\
 		const char* file,\
 		const char* function,\
 		const int line)\
@@ -31,7 +31,7 @@ class SOLSTICERUNTIME_API Exception
 {
 public:
 	Exception(
-		const char* msg,
+		const wchar_t* msg,
 		const char* file,
 		const char* function,
 		const int line)
@@ -52,7 +52,7 @@ protected:
 
 private:
 	std::string m_name;
-	std::string m_text;
+	std::wstring m_text;
 	std::string m_file;
 	std::string m_func;
 	int m_line;

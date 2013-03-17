@@ -1,5 +1,8 @@
 #pragma once
+
+#include <dllDefines.h>
 #include <iostream>
+#include <istream>
 
 #include "iEntity.h"
 #include "path.h"
@@ -221,8 +224,8 @@ public:
 		, m_db(db)
 	{}
 
-	void readRooms(const istream& roomStream);
-	void readEntities(const istream& entityStream);
+	void readRooms(const std::istream& roomStream);
+	void readEntities(const std::istream& entityStream);
 
 	room& done();
 private:

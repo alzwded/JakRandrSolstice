@@ -1,5 +1,7 @@
 #pragma once
 
+#include <dllDefines.h>
+
 #include "iEntity.h"
 
 // implementation

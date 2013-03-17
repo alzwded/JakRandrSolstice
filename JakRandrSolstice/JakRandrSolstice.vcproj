@@ -59,7 +59,7 @@
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
-				CommandLine="copy $(ProjectDir)\..\freeglut\bin\freeglut.dll $(OutDir)\"
+				CommandLine="copy $(ProjectDir)\..\freeglut\bin\freeglut.dll $(OutDir)\&#x0D;&#x0A;copy $(ProjectDir)\..\freeglut\Readme.txt $(OutDir)\freeglut_Readme.txt&#x0D;&#x0A;copy $(ProjectDir)\..\freeglut\Copying.txt $(OutDir)\freeglut_Copying.txt"
 			/>
 			<Tool
 				Name="VCLinkerTool"

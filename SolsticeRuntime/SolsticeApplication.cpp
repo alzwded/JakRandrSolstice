@@ -46,3 +46,13 @@ void SolsticeApplication::Init(int argc, char* argv[])
 void SolsticeApplication::MainLoop()
 {
 }
+
+void SolsticeApplication::Allocate(const char *path, const char *type, const float x, const float y, const float z)
+{
+	// blbla m_entityDB.spawn(
+}
+
+void SolsticeApplication::Deallocate(const char *path)
+{
+	// find in room and baleet
+}

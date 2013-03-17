@@ -17,6 +17,11 @@ public:
 
 	static void Init(int argc, char* argv[]);
 	static void MainLoop();
+
+	// called from plugins to spawn a new entity at given path
+	static void Allocate(const char* path, const char* type, const float x, const float y, const float z);
+	// called from plugins to despawn an entity at given path
+	static void Deallocate(const char* path);
 private:
 	callbackdisplayrederfunc m_callback;
 	roomDB m_roomDB;

@@ -65,7 +65,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="freeglut.lib kernel32.lib SolsticeRuntime.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="&quot;$(ProjectDir)..\SolsticeRuntime\Debug&quot;;&quot;$(ProjectDir)..\freeglut\lib&quot;"
+				AdditionalLibraryDirectories="&quot;$(ProjectDir)..\Debug&quot;;&quot;$(ProjectDir)..\freeglut\lib&quot;"
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				TargetMachine="1"

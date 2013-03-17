@@ -66,12 +66,12 @@ void SolsticeApplication::MainLoop()
 	*/
 }
 
-void SolsticeApplication::Allocate(const char *path, const char *type, const float x, const float y, const float z)
+void SolsticeApplication::Allocate(const path p, const std::string type, const float x, const float y, const float z)
 {
 	// blbla m_entityDB.spawn(
 }
 
-void SolsticeApplication::Deallocate(const char *path)
+void SolsticeApplication::Deallocate(const path p)
 {
 	// find in room and baleet
 }

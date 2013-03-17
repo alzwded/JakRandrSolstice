@@ -237,6 +237,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\fEntity.cpp"
+					>
+				</File>
+				<File
 					RelativePath="..\JakRandrSolstice\PluginManager.cpp"
 					>
 				</File>

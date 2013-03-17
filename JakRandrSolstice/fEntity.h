@@ -11,15 +11,5 @@
 class SOLSTICERUNTIME_API fEntity
 {
 public:
-	static gsp spawn(tEntity type)
-	{
-		switch(type) {
-		case te_UNDEFINED:
-			THROW(UndefinedTypeException);
-			break;
-		default:
-			THROW(UnknownTypeException);
-			break;
-		}
-	}
+	static gsp spawn(tEntity type);
 };

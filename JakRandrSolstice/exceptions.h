@@ -15,6 +15,7 @@ EXCEPTION(IncompatibleTypeException)
 EXCEPTION(NullPtrException)
 EXCEPTION(NameNotFoundException)
 EXCEPTION(FileNotFoundException)
+EXCEPTION(NotImplementedException)
 
 EXCEPTION(FactoryException)
 EXTEND_EXCEPTION(FactoryException, UnknownTypeException)

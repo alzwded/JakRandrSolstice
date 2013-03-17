@@ -10,5 +10,6 @@ typedef enum {
 	te_BODY,
 	te_COMPOUND,
 	te_BLOB,
+	te_PLAYER,
 	te_END_OF_ENUM
 } tEntity;

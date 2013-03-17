@@ -1,0 +1,10 @@
+Test project
+
+Resources like .rooms and .entities files will go inside the resources filter
+SolsticePlugins is simply referenced in the makefile
+The batch file to launch will also go into Resources
+
+TODO
+- makefile
+- level.rooms
+- root.entities

@@ -27,6 +27,9 @@ public: \
 
 #define EXCEPTION(NAME) EXTEND_EXCEPTION(Exception, NAME)
 
+class SOLSTICERUNTIME_API Exception;
+SOLSTICERUNTIME_API std::ostream& operator<<(std::ostream&, const Exception&);
+
 class SOLSTICERUNTIME_API Exception
 {
 public:

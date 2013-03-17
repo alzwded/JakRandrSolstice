@@ -45,6 +45,25 @@ void SolsticeApplication::Init(int argc, char* argv[])
 
 void SolsticeApplication::MainLoop()
 {
+	/*
+	receiveInput();
+
+	activeRoom = movePlayerAndUpdateCamera();
+	
+	activeRoom.loop();
+	for(activeRoom::iterator i = globalRoomList.begin(); i != globalRoomList.end(); ++i) {
+		i->loop();
+	}
+
+	ProcessAllocations();
+
+	activeRoom.computeVisible();
+
+	render(activeRoom);
+	for(activeRoom::iterator i = activeRoom.begin(); i != activeRoom.end(); ++i) {
+		render(*i);
+	}
+	*/
 }
 
 void SolsticeApplication::Allocate(const char *path, const char *type, const float x, const float y, const float z)

@@ -229,6 +229,10 @@
 				Name="model"
 				>
 				<File
+					RelativePath=".\bEntity.cpp"
+					>
+				</File>
+				<File
 					RelativePath="..\JakRandrSolstice\entityDB.cpp"
 					>
 				</File>

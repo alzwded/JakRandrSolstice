@@ -26,5 +26,7 @@
 **/*.suo
 **/*.ncb
 **/*.ilk
+**/*.lib
+**/*.exp
 *.ncb
 *.suo

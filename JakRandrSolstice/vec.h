@@ -33,6 +33,15 @@ public:
 		return m_data[i];
 	}
 
+	const float& operator[](int i) const
+	{
+		if(i < 0 || i >= SIZE) {
+			THROW(OutOfRangeException);
+		}
+
+		return m_data[i];
+	}
+
 	float operator*()
 	{
 		float ret(0.0f);
@@ -77,6 +86,10 @@ public:
 private:
 	float m_data[SIZE];
 };
+
+EXPIMP_TEMPLATE template class SOLSTICERUNTIME_API vec<2>;
+EXPIMP_TEMPLATE template class SOLSTICERUNTIME_API vec<3>;
+EXPIMP_TEMPLATE template class SOLSTICERUNTIME_API vec<4>;
 
 typedef vec<2> vec2;
 typedef vec<3> vec3;

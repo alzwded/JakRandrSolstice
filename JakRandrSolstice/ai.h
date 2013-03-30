@@ -37,8 +37,8 @@ typedef void (*aif_t)(void*, void**, int);
 
 class SOLSTICERUNTIME_API ai {
 public:
-	ai(const gsp&, aif_t func);
-	virtual void loop() =0;
+	ai(gsp&, aif_t func);
+	void loop();
 
 	iEntity& ctx();
 

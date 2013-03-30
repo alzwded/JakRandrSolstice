@@ -22,14 +22,21 @@ public:
 
 	range& operator()(const T& next)
 	{
-		if(count >= SIZE) throw OutOfRangeException();
+		if(count >= SIZE) THROW(OutOfRangeException);
 
 		m_data[count++] = next;
 	}
 
-	T& operator[](int i)
+	T& operator[](const int i)
 	{
-		if(i < 0 || i >= SIZE) throw OutOfRangeException();
+		if(i < 0 || i >= SIZE) THROW(OutOfRangeException);
+
+		return m_data[i];
+	}
+
+	const T& operator[](const int i) const
+	{
+		if(i < 0 || i >= SIZE) THROW(OutOfRangeException);
 
 		return m_data[i];
 	}

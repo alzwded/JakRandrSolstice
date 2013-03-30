@@ -3,8 +3,9 @@
 #include "iEntity.h"
 #include "gsp.h"
 
-ai::ai(const gsp & e)
+ai::ai(gsp & e, aif_t func)
 : m_ctx(e)
+, m_func(func)
 {}
 
 iEntity& ai::ctx()

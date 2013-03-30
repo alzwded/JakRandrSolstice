@@ -21,22 +21,129 @@ void Reader::readRooms(std::istream& roomStream)
 
 gsp Reader::readSkin(ReaderContextMap& context, std::istream& entityStream)
 {
-	THROW_MSG(NotImplementedException, L"Not implemented readSkin");
+	std::string name, s;
+
+	gsp me = fEntity::spawn(te_BODY);
+	EntitySkin& skin = me.ref<EntitySkin>();
+
+	entityStream >> name;
+
+	while(1) {
+		entityStream >> s;
+		if(s.compare("end_skin") == 0) {
+			break;
+		} else if(s.compare("begin_tria") == 0) {
+			gsp oldMe = context["_"];
+			context["_"] = me;
+			gsp e = readTria(context, entityStream);
+			context.insert(std::make_pair(name + "/" + e.get()->name(), e));
+			body.add(e);
+			context["_"] = oldMe;
+		} else if(s.compare("begin_quad") == 0) {
+			gsp oldMe = context["_"];
+			context["_"] = me;
+			gsp e = readQuad(context, entityStream);
+			context.insert(std::make_pair(name + "/" + e.get()->name(), e));
+			body.add(e);
+			context["_"] = oldMe;
+		} else {
+			Reader_THROW();
+		}
+	}
+
+	return e;
 }
 
 gsp Reader::readFleshNode(ReaderContextMap& context, std::istream& enttiyStream)
 {
-	THROW(NotImplementedException);
+	std::string name, s;
+
+	gsp me = fEntity::spawn(te_FLESHNODE);
+	EntityFleshNode& node = me.ref<EntityFleshNode>();
+	
+	while(1) {
+		entityStream >> s;
+		if(s.compare("end_fleshnode") == 0) {
+			break;
+		} else if(s.compare("ref") == 0) {
+			entityStream >> s;
+			node.setRef(context.find(s).second);
+		} else if(s.compare("location") == 0) {
+			float x, y, z;
+			entityStream >> x >> y >> z;
+			vec3 l(range<float, 3>(x)(y)(z));
+			node.setLocation(l);
+		} else {
+			Reader_THROW();
+		}
+	}
+
+	return e;
 }
 
 gsp Reader::readSkelNode(ReaderContextMap& context, std::istream& enttiyStream)
 {
-	THROW(NotImplementedException);
+	std::string name, s;
+
+	gsp me = fEntity::spawn(te_SKELNODE);
+	EntitySkelNode& node = me.ref<EntitySkelNode>();
+	
+	while(1) {
+		entityStream >> s;
+		if(s.compare("end_skelnode") == 0) {
+			break;
+		} else if(s.compare("ref") == 0) {
+			entityStream >> s;
+			node.setRef(context.find(s).second);
+		} else if(s.compare("location") == 0) {
+			float x, y, z;
+			entityStream >> x >> y >> z;
+			vec3 l(range<float, 3>(x)(y)(z));
+			node.setLocation(l);
+		} else {
+			Reader_THROW();
+		}
+	}
+
+	return e;
 }
 
 gsp Reader::readSkeleton(ReaderContextMap& context, std::istream& entityStream)
-{
-	THROW_MSG(NotImplementedException, L"Not implemented readSkeleton");
+{	
+	std::string name, s;
+
+	gsp me = fEntity::spawn(te_SKELETON);
+	EntitySkeleton& skel = me.ref<EntitySkeleton>();
+
+	entityStream >> name;
+
+	while(1) {
+		entityStream >> s;
+		if(s.compare("end_skel") == 0) {
+			break;
+		} else if(s.compare("ref") == 0) {
+			entityStream >> s;
+			body.setRef(context.find(s).second);
+		} else if(s.compare("begin_skelnode") == 0) {
+			gsp oldMe = context["_"].second;
+			context["_"] = me;
+			gsp e = readSkelNode(context, entityStream);
+			context.insert(std::make_pair(name + "/" + e.get()->name(), e));
+			skel.addSkelNode(e);
+			context["_"] = oldMe;
+		} else if(s.compare("begin_fleshnode") == 0) {
+			gsp oldMe = context["_"];
+			context["_"] = me;
+			gsp e = readFleshNode(context, entityStream);
+			context.insert(std::make_pair(name + "/" + e.get()->name(), e));
+			skel.addFleshNode(e);
+			context["_"] = oldMe;
+		} else {
+			Reader_THROW();
+		}
+	}
+
+	return e;
 }
 
 gsp Reader::readQuad(ReaderContextMap& context, std::istream& entityStream)
@@ -172,15 +279,19 @@ void Reader::readBody(ReaderContextMap& context, std::istream& entityStream)
 			ai intelligence = readAI(entityStream);
 			body.setAI(intelligence);
 		} else if(s.compare("begin_skin") == 0) {
+			gsp oldMe = context["_"];
 			context["_"] = me;
 			gsp e = readSkin(context, entityStream);
 			context.insert(std::make_pair(name + "/" + e.get()->name(), e));
 			body.addSkin(e);
-		} else if(s.compare("begin_skeleton") == 0) {
+			context["_"] = oldMe;
+		} else if(s.compare("begin_skel") == 0) {
+			gsp oldMe = context["_"];
 			context["_"] = me;
 			gsp e = readSkeleton(context, entityStream);
 			context.insert(std::make_pair(name + "/" + e.get()->name(), e));
 			body.addSkeleton(e);
+			context["_"] = oldMe;
 		} else {
 			Reader_THROW();
 		}
@@ -207,15 +318,19 @@ void Reader::readBlob(ReaderContextMap& context, std::istream& entityStream)
 
 			blob.setAI(intelligence);
 		} else if(s.compare("begin_tria") == 0) {
+			gsp oldMe = context["_"];
 			context["_"] = me;
 			gsp e = readTria(context, entityStream);
 			context.insert(std::make_pair(name + "/" + e.get()->name(), e));
 			blob.add(e);
+			context["_"] = oldMe;
 		} else if(s.compare("begin_quad") == 0) {
+			gsp oldMe = context["_"];
 			context["_"] = me;
 			gsp e = readQuad(context, entityStream);
 			context.insert(std::make_pair(name + "/" + e.get()->name(), e));
 			blob.add(e);
+			context["_"] = oldMe;
 		} else {
 			Reader_THROW();
 		}

@@ -3,6 +3,7 @@
 #include <dllDefines.h>
 #include <iostream>
 #include <istream>
+#include <map>
 
 #include "iEntity.h"
 #include "path.h"
@@ -239,7 +240,7 @@ formats:
 	}
 */
 
-EXP_IMP template class SOLSTICERUNTIME_API std::map<std::string, gsp>;
+EXPIMP_TEMPLATE template class SOLSTICERUNTIME_API std::map<std::string, gsp>;
 typedef std::map<std::string, gsp> ReaderContextMap;
 
 class SOLSTICERUNTIME_API Reader

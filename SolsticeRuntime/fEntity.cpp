@@ -12,10 +12,11 @@ gsp fEntity::spawn(tEntity type)
 	case te_COMPOUND:
 	case te_BLOB:
 	case te_SKIN:
-	case te_SKELETON_NODE:
+	case te_SKELETON:
+	case te_SKELNODE:
 	case te_TRIA:
 	case te_QUAD:
-	case te_FLESH_NODE:
+	case te_FLESHNODE:
 	case te_BODY:
 		THROW(NotImplementedException);
 		break;

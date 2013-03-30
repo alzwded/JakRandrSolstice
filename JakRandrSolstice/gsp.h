@@ -38,6 +38,16 @@ public:
 		}
 	}
 
+	bool operator==(const gsp& other)
+	{
+		return get() == other.get();
+	}
+
+	bool operator<(const gsp& other)
+	{
+		return get() < other.get();
+	}
+
 	iEntity* get() const { 
 		return m_p;
 	}

@@ -60,17 +60,13 @@ public:
 		return ret;
 	}
 
-	vec<SIZE> operator*(const vec<SIZE>& other)
-	{
-		// TODO
-	}
-
 	vec<SIZE> operator+(const vec<SIZE>& other)
 	{
 		vec<SIZE> ret;
 		for(int i = 0; i < SIZE; ++i) {
 			ret[i] = m_data[i] + other[i];
 		}
+		return ret;
 	}
 
 	vec<SIZE> normalized()

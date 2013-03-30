@@ -9,7 +9,8 @@
 class SOLSTICERUNTIME_API room;
 
 class SOLSTICERUNTIME_API room_portal {
-protected:
+public:
+	room_portal() {}
 	room_portal(const vec3& p1, const vec3& p2);
 
 	friend class room;

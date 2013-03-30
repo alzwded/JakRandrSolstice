@@ -56,7 +56,7 @@ public:
 		, m_line(line)
 	{}
 
-	friend std::ostream& operator<<(std::ostream&, const Exception&);
+	friend SOLSTICERUNTIME_API std::ostream& operator<<(std::ostream&, const Exception&);
 
 protected:
 	void setName(const char* name)

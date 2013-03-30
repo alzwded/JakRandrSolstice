@@ -172,7 +172,7 @@ gsp Reader::readTria(ReaderContextMap& context, std::istream& entityStream)
 
 	while(1) {
 		entityStream >> s;
-		if(s.compare("ref") == 0) {
+		if(s.compare("noderef") == 0) {
 			switch(skelNo) {
 				case 0:
 				case 1:
@@ -342,7 +342,7 @@ void Reader::readBlob(ReaderContextMap& context, std::istream& entityStream)
 // lazy load entities
 void Reader::readEntities(std::istream& entityStream)
 {
-	while(!entityStream.eof()) {
+	while(entityStream.good()) {
 		std::string s;
 		entityStream >> s;
 		if(s.compare("begin_body")) {
@@ -355,6 +355,8 @@ void Reader::readEntities(std::istream& entityStream)
 			m_db.add(e);
 		} else if(s.compare("begin_compound")) {
 			THROW_MSG(NotImplementedException, L"Compounds not implemented");
+		} else if(s.compare("end")) {
+			break;
 		} else {
 			Reader_THROW();
 		}

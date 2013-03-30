@@ -38,6 +38,8 @@ void SolsticeApplication::Init(int argc, char* argv[])
 			f.close();
 		} else if(strncmp(argv[i], "-a", 3) == 0) {
 			// unneccesary
+		} else if(strncmp(argv[i], "-d", 3) == 0) {
+			std::cin.getline();
 		}
 	}
 	r.done();

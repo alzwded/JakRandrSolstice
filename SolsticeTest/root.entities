@@ -1,0 +1,70 @@
+begin_body test1
+	begin_skel mySkeleton
+		begin_skelnode sk1
+			ref _
+			location 0 0 0
+		end_skelnode
+		begin_skelnode sk2
+			ref mySkeleton/sk1
+			location 0 100 0
+		end_skelnode
+		
+		begin_fleshnode fn1
+			ref mySkeleton/sk1
+			location 100 0 0
+		end_fleshnode
+		begin_fleshnode fn2
+			ref mySkeleton/sk1
+			location -100 0 0
+		end_fleshnode
+		begin_fleshnode fn3
+			ref mySkeleton/sk2
+			location 100 0 0
+		end_fleshnode
+		begin_fleshnode fn4
+			ref mySkeleton/sk2
+			location -100 0 0
+		end_fleshnode
+	end_skel
+	begin_skin
+		begin_quad q1
+			noderef test1/mySkeleton/fn1
+			noderef test1/mySkeleton/fn2
+			noderef test1/mySkeleton/fn3
+			noderef test1/mySkeleton/fn4
+			color C08080
+		end_quad
+		begin_quad q1rev
+			ref test1/mySkeleton/fn1
+			ref test1/mySkeleton/fn4
+			ref test1/mySkeleton/fn3
+			ref test1/mySkeleton/fn2
+			color 8080C0
+		end_quad
+	end_skin
+	begin_ai test_ai
+		dll SolsticePlugins.dll
+	end_ai
+end_body
+
+begin_blob
+	begin_tria t1
+		ref _
+		location 0 0 0
+		location -50 -100 0
+		location 50 -100 0
+		color C08080
+	end_tria
+	begin_tria t1rev
+		ref _
+		location 0 0 0
+		location 50 -100 0
+		location -50 -100 0
+		color 8080C0
+	end_tria
+	begin_ai test_ai
+		dll SolsticePlugins.dll
+	end_ai
+end_blob
+
+end

@@ -7,6 +7,8 @@
 #include <list>
 #include "room.h"
 
+EXPIMP_TEMPLATE template class SOLSTICERUNTIME_API std::list<room>;
+
 class SOLSTICERUNTIME_API roomDB {
 public:
 	roomDB() {}

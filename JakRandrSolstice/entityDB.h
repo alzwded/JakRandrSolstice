@@ -12,7 +12,7 @@
 #include "tEntity.h"
 #include "gsp.h"
 
-EXPIMP_TEMPLATE template class SOLSTICERUNTIME_API std::map<std::wstring, gsp>;
+EXPIMP_TEMPLATE template class SOLSTICERUNTIME_API std::map<std::string, gsp>;
 
 class SOLSTICERUNTIME_API entityDB {
 public:

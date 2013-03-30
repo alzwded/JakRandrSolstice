@@ -5,10 +5,12 @@
 #include <string>
 #include <list>
 
+EXPIMP_TEMPLATE template class SOLSTICERUNTIME_API std::list<std::string>;
+
 class SOLSTICERUNTIME_API path sealed 
 {
 public:
-	path(const std::list<std::wstring>&, bool root = false);
+	path(const std::list<std::string>&, bool root = false);
 	path(const std::wstring&, bool root = false);
 	path(const path&);
 	path(bool root = true);
@@ -25,7 +27,7 @@ public:
 	bool empty();
 private:
 	bool m_root;
-	std::list<std::wstring> m_nodes;
+	std::list<std::string> m_nodes;
 
 	bool cache_invalid;
 	std::wstring cache_tail;

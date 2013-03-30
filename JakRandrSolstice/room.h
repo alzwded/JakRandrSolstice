@@ -15,6 +15,10 @@ protected:
 	friend class room;
 };
 
+EXPIMP_TEMPLATE template struct SOLSTICERUNTIME_API std::pair<room_portal, room*>;
+EXPIMP_TEMPLATE template class SOLSTICERUNTIME_API std::list<std::pair<room_portal, room*>>;
+EXPIMP_TEMPLATE template class SOLSTICERUNTIME_API std::list<gsp>;
+
 class SOLSTICERUNTIME_API room {
 public:
 	room() {}

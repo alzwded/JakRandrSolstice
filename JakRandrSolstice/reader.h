@@ -7,6 +7,9 @@
 #include "iEntity.h"
 #include "path.h"
 
+class roomDB;
+class entityDB;
+
 /*
 formats:
 	_ is a placeholder; it can mean NULL, or DEFAULT
@@ -19,10 +22,14 @@ formats:
 			begin_link second
 				x, y, z
 				x, y, z
+				x', y', z'
+				x', y', z'
 			end_link
 			begin_link third
 				x, y, z
 				x, y, z
+				x', y', z'
+				x', y', z'
 			end_link
 			begin_entity ball1
 				type ball
@@ -49,10 +56,14 @@ formats:
 			begin_link first
 				x, y, z
 				x, y, z
+				x', y', z'
+				x', y', z'
 			end_link
 			begin_link fourth
 				x, y, z
 				x, y, z
+				x', y', z'
+				x', y', z'
 			end_link
 			begin_entity bucket1
 				ref _
@@ -69,10 +80,14 @@ formats:
 			begin_link first
 				x, y, z
 				x, y, z
+				x', y', z'
+				x', y', z'
 			end_link
 			begin_link second
 				x, y, z
 				x, y, z
+				x', y', z'
+				x', y', z'
 			end_link
 			begin_entity bucket2
 				location x, y, z
@@ -83,6 +98,8 @@ formats:
 			begin_link first
 				x, y, z
 				x, y, z
+				x', y', z'
+				x', y', z'
 			end_link
 			begin_quad _
 				0, 0, 100
@@ -128,7 +145,7 @@ formats:
 					location 0, -10, 0
 				end_skelnode
 				begin_skelnode sk2a
-					ref sk2a
+					ref sk2
 					location 0, -10, 0
 				end_skelnode
 				begin_fleshnode tip
@@ -145,20 +162,24 @@ formats:
 					ref mySkeleton/sk1
 					ref mySkeleton/sk1a
 					ref mySkeleton/tip
+					color C08080
 				end_tria
 				begin_tria _
 					ref mySkeleton/sk2
 					ref mySkeleton/tip
 					ref mySkeleton/sk2a
+					color C08080
 				end_tria
 			end_skin
 		end_body
 		begin_blob bucket
 			begin_quad _
 				; coords
+				texture path/to/texture/file
 			end_quad
 			begin_tria
 				; coords
+				color 8080C0
 			end_tria
 		end_blob
 		begin_compound complicated
@@ -218,6 +239,9 @@ formats:
 	}
 */
 
+EXP_IMP template class SOLSTICERUNTIME_API std::map<std::string, gsp>;
+typedef std::map<std::string, gsp> ReaderContextMap;
+
 class SOLSTICERUNTIME_API Reader
 {
 public:
@@ -227,12 +251,23 @@ public:
 	{}
 
 	// lazy load rooms
-	void readRooms(const std::istream& roomStream);
+	void readRooms(std::istream& roomStream);
 	// lazy load entities
-	void readEntities(const std::istream& entityStream);
+	void readEntities(std::istream& entityStream);
 
 	// spawn entities in rooms
 	void done();
+
+private:
+	gsp readTria(ReaderContextMap&, std::istream& entityStream);
+	gsp readQuad(ReaderContextMap&, std::istream& entityStream);
+	gsp readBody(ReaderContextMap&, std::istream& entityStream);
+	gsp readSkeleton(ReaderContextMap&, std::istream& entityStream);
+	gsp readSkelNode(ReaderContextMap&, std::istream& entityStream);
+	gsp readFleshNode(ReaderContextMap&, std::istream& entityStream);
+	gsp readSkin(ReaderContextMap&, std::istream& entityStream);
+	ai readAI(std::istream& entityStream);
+
 private:
 	roomDB& m_rooms;
 	entityDB& m_db;

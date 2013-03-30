@@ -50,7 +50,7 @@ public:
 	// will be something like /room/model/subpart/myname
 	virtual path getPath() =0;
 	// get my name (tail of path)
-	virtual std::wstring name() =0;
+	virtual std::string name() =0;
 	// retrieve a sub-entity by path
 	// can be relative or absolute
 	virtual gsp getByPath(const path&) =0;
@@ -63,7 +63,7 @@ public:
 	// set data from a loader or somthing (e.g. reader)
 	virtual void set(void*) =0;
 	// assign an AI
-	virtual void setAI(const ai&) =0;
+	virtual void setAI(ai) =0;
 	// ai loop
 	// also loop on all childrens
 	virtual void loop() =0;

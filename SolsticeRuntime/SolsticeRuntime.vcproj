@@ -269,6 +269,22 @@
 					>
 				</File>
 			</Filter>
+			<Filter
+				Name="IO"
+				>
+				<File
+					RelativePath=".\reader.cpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="modelImpl"
+				>
+				<File
+					RelativePath=".\EntityTria.cpp"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -380,6 +396,14 @@
 				>
 				<File
 					RelativePath=".\SolsticeApplication.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="modelImpl"
+				>
+				<File
+					RelativePath=".\EntityTria.h"
 					>
 				</File>
 			</Filter>

@@ -27,7 +27,7 @@ public:
 	float& operator[](int i) 
 	{
 		if(i < 0 || i >= SIZE) {
-			throw OutOfRangeException();
+			THROW(OutOfRangeException);
 		}
 
 		return m_data[i];

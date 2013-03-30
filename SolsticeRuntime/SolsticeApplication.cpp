@@ -75,3 +75,8 @@ void SolsticeApplication::Deallocate(const path p)
 {
 	// find in room and baleet
 }
+
+PluginsManager& SolsticeApplication::GetPluginManager()
+{
+	return m_mgr;
+}

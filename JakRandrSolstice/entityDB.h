@@ -18,7 +18,7 @@ class SOLSTICERUNTIME_API entityDB {
 public:
 	entityDB() {}
 	
-	gsp spawn(const std::wstring& name) const;
+	gsp spawn(const std::string& name) const;
 
 	void add(const gsp& e)
 	{
@@ -27,5 +27,5 @@ public:
 	}
 	void clear() { m_db.clear(); }
 private:
-	std::map<std::wstring, gsp> m_db;
+	std::map<std::string, gsp> m_db;
 };

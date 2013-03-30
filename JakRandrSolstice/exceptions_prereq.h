@@ -4,12 +4,23 @@
 
 #include <string>
 #include <ostream>
+#include <sstream>
 
 #define THROW_MSG(WHAT, TEXT) do{\
 	throw WHAT(TEXT, __FILE__, __FUNCSIG__, __LINE__); \
 }while(0)
 
 #define THROW(WHAT) THROW_MSG(WHAT, L"")
+
+#define THROW_MSGW(WHAT, UNICODE) do{\
+	THROW_MSG(WHAT, UNICODE); \
+}while(0)
+
+#define THROW_MSGA(WHAT, ASCII) do{\
+	std::wstringstream wss; \
+	wss << ASCII; \
+	THROW_MSG(WHAT, wss.str().c_str()); \
+}while(0)
 
 #define EXTEND_EXCEPTION(BASE, NAME)\
 class SOLSTICERUNTIME_API NAME : public BASE { \

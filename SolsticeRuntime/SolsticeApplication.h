@@ -19,6 +19,8 @@ public:
 	static void Init(int argc, char* argv[]);
 	static void MainLoop();
 
+	static PluginManager& GetPluginManager();
+
 	// called from plugins to spawn a new entity at given path
 	static void Allocate(const path p, const std::string type, const float x, const float y, const float z);
 	// called from plugins to despawn an entity at given path
